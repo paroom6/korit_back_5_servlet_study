@@ -42,12 +42,12 @@ public class HttpStudyServlet2 extends HttpServlet {
     			String[] value = sMap.get(key);
     			for(int i = 0; i < value.length; i++) {
     				System.out.println(key + ": " + value[i]);
-    			}
+    			} 
     		}
 		}
-//    	System.out.println(paramsMap);
-//    	System.out.println(request.getParameter("name"));
-//    	
+    	System.out.println(paramsMap);
+    	System.out.println(request.getParameter("name"));
+    	
 //    	Map<String, String> paramsMap2 = new HashMap<>(); 
 //    	Iterator<String> ir =  request.getParameterNames().asIterator();//키만 넣어둔것
 //    	while(ir.hasNext()) {
@@ -55,8 +55,10 @@ public class HttpStudyServlet2 extends HttpServlet {
 //    		paramsMap2.put(key, request.getParameter(key));//key = 맵의 키들
 //    		//System.out.println(ir.next());
 //    	}
-    	// request.getParameterValues();//값만 넣어둔것
+//    	
+//    	System.out.println(paramsMap2.toString());
     	
+    	// request.getParameterValues();//값만 넣어둔것
     	//String nameParams = request.getParameter("name"); //요청을 받는 자료형은 Sting 이다. 한글의 경우 마지막 글자가 씹힐 수도 있으니 한번 더 확인
 	
     }

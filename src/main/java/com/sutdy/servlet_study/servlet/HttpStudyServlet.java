@@ -29,7 +29,7 @@ public class HttpStudyServlet extends HttpServlet {
     }
     //http메소드
     /*
-     * POST 요청 	: C reate 추가 //GET과 차이, 왜 getParameterMap()은 value로 Sting[]인가?
+     * POST 요청 	: C reate 추가 //GET과 차이, 왜 getParameterMap()은 value로 Sting[]인가? 같은 키의 다양한 값을 받을 수 있다.
      * GET 요청 	: R ead 조회  //GET요청 이외에는 body 사용
      * PUSH 요청 	: U pdate 수정 
      * DELETE 요청	: D elete 삭제
