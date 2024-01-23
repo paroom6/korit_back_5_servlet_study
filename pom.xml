@@ -7,7 +7,13 @@
   <name>servlet_study</name>
   
   <dependencies>
-	  
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.33</version>
+	</dependency>
+		  
 	  <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jsp-api -->
 	<dependency>
     	<groupId>org.apache.tomcat</groupId>
@@ -22,6 +28,7 @@
     	<version>1.18.30</version>
     	<scope>provided</scope>
 	</dependency>
+	
 	
   </dependencies>
   
