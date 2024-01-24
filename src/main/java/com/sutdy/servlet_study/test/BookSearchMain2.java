@@ -38,13 +38,15 @@ public class BookSearchMain2 {
 					+ "    at.author,\r\n"
 					+ "    pt.publisher_id,\r\n"
 					+ "    pt.publisher_name\r\n"
-					+ "FROM 	\r\n"
-					+ "	book b\r\n"
-					+ "    left outer join author_tb at on(at.author_id = b.author_id)\r\n"
-					+ "    left outer join publisher_tb pt on (pt.publisher_id = b.publisher_id)"
-					+ "where b.book_name like '%" + findBook + "%';";
-			pstmt = con.prepareStatement(sql); // sql창에 String sql 입력
-			rs = pstmt.executeQuery(); //쿼리 실행 set자료형으로 획득
+					+ "FROM\r\n"
+					+ "	   book b\r\n"
+					+ "	   left outer join author_tb at on(at.author_id = b.author_id)\r\n"
+					+ "    left outer join publisher_tb pt on (pt.publisher_id = b.publisher_id)\r\n"
+					+ "where\r\n "
+					+ "	   b.book_name like ?;";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + findBook + "%"); // 기본적으로 ''가 붙어서 들어간다.ㅋ
+			rs = pstmt.executeQuery(); 
 			while(rs.next()) {
 				bookList.add(Book.builder()
 								 .bookId(rs.getInt(1))
@@ -53,15 +55,19 @@ public class BookSearchMain2 {
 								 .publisher(new Publisher(rs.getInt(5),rs.getString(6)))
 								 .build());
 			}
-			for(Book book : bookList) {
-				System.out.println(book.getBookName() + " / " + book.getAuthor().getAuthorName() + " / " + book.getPublisher().getPublisherName());
-			}
-		} catch (Exception e) { //throws를 Exception로 잡아놨기때문 (throw는 강제 예외생성)
+			
+			
+		} catch (Exception e) { 
 			e.printStackTrace();
-		} finally {// try catch 후 마지막에 실행
-			pool.freeConnection(con, pstmt, rs);//서버와 연결을 끊기 위해 try문 밖에 변수 생성
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
 		}
-
+		System.out.println("도서명 / 저자명 /출판사");
+		
+		bookList.forEach(book -> {
+			System.out.println(book.getBookName() + " / " + book.getAuthor().getAuthorName() + " / " + book.getPublisher().getPublisherName());				
+		});
+		
 	}
 }
 

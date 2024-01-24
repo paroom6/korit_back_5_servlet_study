@@ -26,7 +26,7 @@ public class DBConnectionTestMain {
 			while(rs.next()) {
 				authorList.add(Author.builder()
 									 .authorId(rs.getInt(1))
-									 .authorName(rs.getNString(2))
+									 .authorName(rs.getString(2))
 									 .build()); //sql table의 데이터 타입에 맞추어서 작성
 			}
 			authorList.forEach(author -> System.out.println(author));//collection에 사용 map의 경우 entryset으로 바꿔 반복

@@ -23,7 +23,7 @@ public class BookSearchMain {
 		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
-		List<Book> bookList = new ArrayList<>();
+		List<Book> bookList = new ArrayList<>();//인터페이스를 사용시 앞의 생성자는 인터페이스명으로 
 		
 		
 		

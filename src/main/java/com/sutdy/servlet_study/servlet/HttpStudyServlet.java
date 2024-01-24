@@ -50,7 +50,7 @@ public class HttpStudyServlet extends HttpServlet {
     	//한글깨짐 - body로 request를 보낼때 utf-8로 변환 필요 - 필터처리
     	//request.setCharacterEncoding("utf-8");
     	Map<String, String[]> map = request.getParameterMap(); //키를 명시하지 않고 한 덩어리로 받기 좋다.
-    	 Map<String, String> paramsMap = ParamsConverter.convertParamsMapToMap(map);
+    	Map<String, String> paramsMap = ParamsConverter.convertParamsMapToMap(map);
 
     	System.out.println(paramsMap);
     	System.out.println(request.getParameter("name"));
