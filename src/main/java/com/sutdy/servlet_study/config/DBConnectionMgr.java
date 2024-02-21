@@ -311,6 +311,10 @@ public class DBConnectionMgr {
 	            System.err.println(s);
 	    }
 
+		public static void main(String[] args) {
+			
+		}
+
 	}
 
 
